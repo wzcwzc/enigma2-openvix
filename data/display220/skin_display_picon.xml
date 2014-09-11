@@ -90,17 +90,63 @@
 	</screen>
 
 	<screen name="SummaryEpgPanel">
-		<widget source="parent.Service" render="LcdPicon" position="0,35" size="220,132" zPosition="1" alphatest="on">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 	</screen>
 
 <!-- main-->
 	<screen name="InfoBarSummary" position="0,0" size="220,176">
-		<widget source="session.CurrentService" render="LcdPicon" position="0,35" size="220,132" zPosition="1" alphatest="on">
+		<widget source="session.CurrentService" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<panel name="SummaryIconsPanel" />
+	</screen>
+	
+<!-- channelselection-->
+	<screen name="ChannelSelection_summary" position="0,0" size="220,176">
+		<widget source="parent.ServiceEvent" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	
+<!-- EPG Screens -->
+	<screen name="EPGSelection_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	<screen name="QuickEPG_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	<screen name="GraphicalInfoBarEPG_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	<screen name="GraphicalEPG_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	<screen name="GraphicalEPGPIG_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+	
+<!-- Event View -->
+	<screen name="EventView_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+
+	<screen name="EventViewSimple_summary" position="0,0" size="220,176">
+		<widget source="parent.Service" render="LcdPicon" position="0,0" size="220,176" zPosition="1" alphatest="on">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
 	</screen>
 
 <!-- movieplayer-->
@@ -142,14 +188,6 @@
 		<panel name="SummaryIconsPanel" />
 		<panel name="SummaryTunerStatusPanel" />
 		<panel name="SummaryClockPanel" />
-	</screen>
-
-<!-- channelselection-->
-	<screen name="ChannelSelection_summary" position="0,0" size="220,176">
-		<widget source="parent.ServiceEvent" render="LcdPicon" position="0,35" size="220,132" zPosition="1" alphatest="on">
-			<convert type="ServiceName">Reference</convert>
-		</widget>
-		<panel name="SummaryIconsPanel" />
 	</screen>
 
 <!-- menus-->
@@ -220,34 +258,6 @@
 		</widget>
 		<panel name="SummaryIconsPanel" />
 		<panel name="SummaryClockPanel" />
-	</screen>
-
-	<screen name="EventView_summary" position="0,0" size="220,176">
-		<widget source="parent.Title" render="Label" position="0,0" size="160,22" font="FdLcD;20" halign="left" noWrap="1" />
-		<widget source="parent.summary_description" render="Label" position="0,22" size="220,140" font="FdLcD;17" />
-	</screen>
-
-	<screen name="EventViewSimple_summary" position="0,0" size="220,176">
-		<widget source="parent.Title" render="Label" position="0,0" size="160,22" font="FdLcD;20" halign="left" noWrap="1" />
-		<widget source="parent.summary_description" render="Label" position="0,22" size="220,140" font="FdLcD;17" />
-	</screen>
-
-<!-- EPG Screens -->
-	<screen name="EPGSelection_summary" position="0,0" size="220,176">
-		<panel name="SummaryEpgPanel" />
-		<panel name="SummaryIconsPanel" />
-	</screen>
-	<screen name="QuickEPG_summary" position="0,0" size="220,176">
-		<panel name="SummaryEpgPanel" />
-		<panel name="SummaryIconsPanel" />
-	</screen>
-	<screen name="GraphicalEPG_summary" position="0,0" size="220,176">
-		<panel name="SummaryEpgPanel" />
-		<panel name="SummaryIconsPanel" />
-	</screen>
-	<screen name="GraphicalEPGPIG_summary" position="0,0" size="220,176">
-		<panel name="SummaryEpgPanel" />
-		<panel name="SummaryIconsPanel" />
 	</screen>
 
 	<screen name="ChoiceBox_summary" position="0,0" size="220,176">
