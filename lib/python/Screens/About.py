@@ -38,7 +38,7 @@ class About(Screen):
 									})
 
 	def populate(self):
-		self["lab1"] = StaticText(_("Virtuosso Image Xtreme"))
+		self["lab1"] = StaticText(_("OpenViX-HD"))
 		self["lab2"] = StaticText(_("By Team ViX"))
 		model = None
 		AboutText = ""
@@ -107,7 +107,7 @@ class Devices(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("Device Information"))
-		self["TunerHeader"] = StaticText(_("Detected NIMs:"))
+		self["TunerHeader"] = StaticText(_("Detected Tuners:"))
 		self["HDDHeader"] = StaticText(_("Detected Devices:"))
 		self["MountsHeader"] = StaticText(_("Network Servers:"))
 		self["nims"] = StaticText()
@@ -126,7 +126,7 @@ class Devices(Screen):
 	def populate(self):
 		self.mountinfo = ''
 		self["actions"].setEnabled(False)
-		scanning = _("Wait please while scanning for devices...")
+		scanning = _("Please wait while scanning for devices...")
 		self["nims"].setText(scanning)
 		self["hdd"].setText(scanning)
 		self['mounts'].setText(scanning)
@@ -225,7 +225,7 @@ class SystemMemoryInfo(Screen):
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("Memory Information"))
 		self.skinName = ["SystemMemoryInfo", "About"]
-		self["lab1"] = StaticText(_("Virtuosso Image Xtreme"))
+		self["lab1"] = StaticText(_("OpenViX-HD"))
 		self["lab2"] = StaticText(_("By Team ViX"))
 		self["AboutScrollLabel"] = ScrollLabel()
 
@@ -496,7 +496,7 @@ class SystemNetworkInfo(Screen):
 class AboutSummary(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
-		self["selected"] = StaticText("ViX:" + getImageVersion())
+		self["selected"] = StaticText("OpenViX-HD:" + getImageVersion())
 
 		AboutText = _("Model: %s %s\n") % (getMachineBrand(), getMachineName())
 
@@ -556,7 +556,7 @@ class ViewGitLog(Screen):
 	def changelogtype(self):
 		if self.logtype == 'oe':
 			self["key_yellow"].setText(_("Show OE Log"))
-			self.setTitle(_("Enimga2 Changes"))
+			self.setTitle(_("Enigma2 Changes"))
 			self.logtype = 'e2'
 		else:
 			self["key_yellow"].setText(_("Show E2 Log"))
@@ -574,7 +574,7 @@ class ViewGitLog(Screen):
 		fd = open('/etc/' + self.logtype + '-git.log', 'r')
 		releasenotes = fd.read()
 		fd.close()
-		releasenotes = releasenotes.replace('\nopenvix: build', "\n\nopenvix: build")
+		releasenotes = releasenotes.replace('\nopenvixhd: build', "\n\nopenvixhd: build")
 		self["text"].setText(releasenotes)
 		summarytext = releasenotes
 		try:

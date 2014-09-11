@@ -56,12 +56,12 @@ class HelpMenuList(GUIComponent):
 
 		self.l.setList(l)
 		if self.extendedHelp is True:
-			self.l.setFont(0, gFont("Regular", 24))
-			self.l.setFont(1, gFont("Regular", 18))
+			self.l.setFont(0, gFont("Regular", 28))
+			self.l.setFont(1, gFont("Regular", 24))
 			self.l.setItemHeight(50)
 		else:
-			self.l.setFont(0, gFont("Regular", 24))
-			self.l.setItemHeight(38)
+			self.l.setFont(0, gFont("Regular", 28))
+			self.l.setItemHeight(50)
 
 	def ok(self):
 		# a list entry has a "private" tuple as first entry...

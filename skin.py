@@ -16,8 +16,8 @@ colorNames = {}
 # Predefined fonts, typically used in built-in screens and for components like
 # the movie list and so.
 fonts = {
-	"Body": ("Regular", 18, 22, 16),
-	"ChoiceList": ("Regular", 20, 24, 18),
+	"Body": ("Regular", 28, 28, 28),
+	"ChoiceList": ("Regular", 28, 28, 28),
 }
 
 def dump(x, i=0):
@@ -73,7 +73,7 @@ def skin_user_skinname():
 
 # example: loadSkin("nemesis_greenline/skin.xml")
 config.skin = ConfigSubsection()
-DEFAULT_SKIN = "ViX-Night-HD/skin.xml"
+DEFAULT_SKIN = "YouViX-Blue/skin.xml"
 if not fileExists(resolveFilename(SCOPE_SKIN, DEFAULT_SKIN)):
 	# in that case, fallback to Magic (which is an SD skin)
 	DEFAULT_SKIN = "skin.xml"
@@ -561,7 +561,7 @@ def loadSingleSkinData(desktop, skin, path_prefix):
 		else:
 			style_id = 0
 		# defaults
-		font = gFont("Regular", 20)
+		font = gFont("Regular", 28)
 		offset = eSize(20, 5)
 		for title in windowstyle.findall("title"):
 			get_attr = title.attrib.get

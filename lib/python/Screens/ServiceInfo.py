@@ -50,8 +50,8 @@ class ServiceInfoList(HTMLComponent, GUIComponent):
 		self.l = eListboxPythonMultiContent()
 		self.list = source
 		self.l.setList(self.list)
-		self.l.setFont(0, gFont("Regular", 23))
-		self.l.setItemHeight(25)
+		self.l.setFont(0, gFont("Regular", 28))
+		self.l.setItemHeight(50)
 
 	GUI_WIDGET = eListbox
 

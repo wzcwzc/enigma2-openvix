@@ -11,7 +11,7 @@ from Components.ConfigList import ConfigListScreen
 from Components.Console import Console
 from Components.Label import Label
 from Components.MenuList import MenuList
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
+from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest, MultiContentEntryPixmapAlphaBlend
 from Components.ScrollLabel import ScrollLabel
 from Screens.HelpMenu import HelpableScreen
 
@@ -206,26 +206,26 @@ def getConfigNameAndContent(fileName):
 class CCcamList(MenuList):
 	def __init__(self, list):
 		MenuList.__init__(self, list, False, eListboxPythonMultiContent)
-		self.l.setItemHeight(25)
-		self.l.setFont(0, gFont("Regular", 20))
+		self.l.setItemHeight(50)
+		self.l.setFont(0, gFont("Regular", 28))
 
 class CCcamShareList(MenuList):
 	def __init__(self, list):
 		MenuList.__init__(self, list, False, eListboxPythonMultiContent)
-		self.l.setItemHeight(60)
-		self.l.setFont(0, gFont("Regular", 18))
+		self.l.setItemHeight(75)
+		self.l.setFont(0, gFont("Regular", 28))
 
 class CCcamConfigList(MenuList):
 	def __init__(self, list):
 		MenuList.__init__(self, list, False, eListboxPythonMultiContent)
-		self.l.setItemHeight(30)
-		self.l.setFont(0, gFont("Regular", 20))
+		self.l.setItemHeight(50)
+		self.l.setFont(0, gFont("Regular", 28))
 
 class CCcamShareViewList(MenuList):
 	def __init__(self, list):
 		MenuList.__init__(self, list, False, eListboxPythonMultiContent)
-		self.l.setItemHeight(20)
-		self.l.setFont(0, gFont("Regular", 18))
+		self.l.setItemHeight(50)
+		self.l.setFont(0, gFont("Regular", 28))
 
 def CCcamListEntry(name, idx):
 	res = [name]
@@ -243,33 +243,33 @@ def CCcamListEntry(name, idx):
 		idx = "info"
 	png = "/usr/share/enigma2/skin_default/buttons/key_%s.png" % str(idx)
 	if fileExists(png):
-		res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(35, 25), png=loadPNG(png)))
-	res.append(MultiContentEntryText(pos=(40, 3), size=(500, 25), font=0, text=name))
+		res.append(MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(53, 38), png=loadPNG(png)))
+	res.append(MultiContentEntryText(pos=(85, 7), size=(900, 35), font=0, text=name))
 	return res
 
 def CCcamServerListEntry(name, color):
 	res = [name]
 	png = "/usr/share/enigma2/skin_default/buttons/key_%s.png" % color
 	if fileExists(png):
-		res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(35, 25), png=loadPNG(png)))
-	res.append(MultiContentEntryText(pos=(40, 3), size=(500, 25), font=0, text=name))
+		res.append(MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(53, 38), png=loadPNG(png)))
+	res.append(MultiContentEntryText(pos=(85, 7), size=(900, 35), font=0, text=name))
 	return res
 
 def CCcamShareListEntry(hostname, type, caid, system, uphops, maxdown):
 	res = [(hostname, type, caid, system, uphops, maxdown),
-		   MultiContentEntryText(pos=(0, 0), size=(250, 20), font=0, text=hostname),
-		   MultiContentEntryText(pos=(250, 0), size=(250, 20), font=0, text=_("Type: ") + type, flags=RT_HALIGN_RIGHT),
-		   MultiContentEntryText(pos=(0, 20), size=(250, 20), font=0, text=_("CaID: ") + caid),
-		   MultiContentEntryText(pos=(250, 20), size=(250, 20), font=0, text=_("System: ") + system, flags=RT_HALIGN_RIGHT),
-		   MultiContentEntryText(pos=(0, 40), size=(250, 20), font=0, text=_("Uphops: ") + uphops),
-		   MultiContentEntryText(pos=(250, 40), size=(250, 20), font=0, text=_("Maxdown: ") + maxdown, flags=RT_HALIGN_RIGHT)]
+		   MultiContentEntryText(pos=(10, 0), size=(550, 35), font=0, text=hostname),
+		   MultiContentEntryText(pos=(650, 0), size=(500, 35), font=0, text=_("Type: ") + type, flags=RT_HALIGN_RIGHT),
+		   MultiContentEntryText(pos=(10, 40), size=(250, 35), font=0, text=_("CaID: ") + caid),
+		   MultiContentEntryText(pos=(230, 40), size=(250, 35), font=0, text=_("System: ") + system, flags=RT_HALIGN_RIGHT),
+		   MultiContentEntryText(pos=(520, 40), size=(250, 35), font=0, text=_("Uphops: ") + uphops, flags=RT_HALIGN_RIGHT),
+		   MultiContentEntryText(pos=(900, 40), size=(250, 35), font=0, text=_("Maxdown: ") + maxdown, flags=RT_HALIGN_RIGHT)]
 	return res
 
 def CCcamShareViewListEntry(caidprovider, providername, numberofcards, numberofreshare):
 	res = [(caidprovider, providername, numberofcards),
-		   MultiContentEntryText(pos=(0, 0), size=(430, 20), font=0, text=providername),
-		   MultiContentEntryText(pos=(430, 0), size=(50, 20), font=0, text=numberofcards, flags=RT_HALIGN_RIGHT),
-		   MultiContentEntryText(pos=(480, 0), size=(50, 20), font=0, text=numberofreshare, flags=RT_HALIGN_RIGHT)]
+		   MultiContentEntryText(pos=(10, 5), size=(800, 35), font=0, text=providername),
+		   MultiContentEntryText(pos=(1050, 5), size=(50, 35), font=0, text=numberofcards, flags=RT_HALIGN_RIGHT),
+		   MultiContentEntryText(pos=(1100, 5), size=(50, 35), font=0, text=numberofreshare, flags=RT_HALIGN_RIGHT)]
 	return res
 
 def CCcamConfigListEntry(file):
@@ -289,8 +289,8 @@ def CCcamConfigListEntry(file):
 	else:
 		png = lock_off
 
-	res.append(MultiContentEntryPixmapAlphaTest(pos=(2, 2), size=(25, 25), png=png))
-	res.append(MultiContentEntryText(pos=(35, 2), size=(550, 25), font=0, text=name))
+	res.append(MultiContentEntryPixmapAlphaBlend(pos=(5, 5), size=(35, 35), png=png))
+	res.append(MultiContentEntryText(pos=(85, 5), size=(800, 35), font=0, text=name))
 
 	return res
 
@@ -302,8 +302,8 @@ def CCcamMenuConfigListEntry(name, blacklisted):
 	else:
 		png = lock_on
 
-	res.append(MultiContentEntryPixmapAlphaTest(pos=(2, 2), size=(25, 25), png=png))
-	res.append(MultiContentEntryText(pos=(35, 2), size=(550, 25), font=0, text=name))
+	res.append(MultiContentEntryPixmapAlphaBlend(pos=(5, 5), size=(35, 35), png=png))
+	res.append(MultiContentEntryText(pos=(85, 5), size=(800, 35), font=0, text=name))
 
 	return res
 

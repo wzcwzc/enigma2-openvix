@@ -5,7 +5,7 @@
 
 eListbox::eListbox(eWidget *parent) :
 	eWidget(parent), m_scrollbar_mode(showNever), m_prev_scrollbar_page(-1),
-	m_content_changed(false), m_enabled_wrap_around(false), m_top(0), m_selected(0), m_itemheight(25),
+	m_content_changed(false), m_enabled_wrap_around(false), m_top(0), m_selected(0), m_itemheight(50),
 	m_items_per_page(0), m_selection_enabled(1), m_scrollbar(NULL)
 {
 	memset(&m_style, 0, sizeof(m_style));
@@ -460,7 +460,7 @@ void eListbox::setItemHeight(int h)
 	if (h)
 		m_itemheight = h;
 	else
-		m_itemheight = 20;
+		m_itemheight = 50;
 	recalcSize();
 }
 

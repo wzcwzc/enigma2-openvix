@@ -64,11 +64,11 @@ class ServiceList(HTMLComponent, GUIComponent):
 		self.listHeight = None
 		self.listWidth = None
 		self.ServiceNumberFontName = "Regular"
-		self.ServiceNumberFontSize = 20
+		self.ServiceNumberFontSize = 26
 		self.ServiceNameFontName = "Regular"
-		self.ServiceNameFontSize = 22
+		self.ServiceNameFontSize = 26
 		self.ServiceInfoFontName = "Regular"
-		self.ServiceInfoFontSize = 18
+		self.ServiceInfoFontSize = 24
 		self.onSelectionChanged = [ ]
 
 	def applySkin(self, desktop, parent):

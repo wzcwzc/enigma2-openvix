@@ -36,7 +36,7 @@ EXTENSIONS = {
 	}
 
 def FileEntryComponent(name, absolute = None, isDir = False):
-	res = [(absolute, isDir), (eListboxPythonMultiContent.TYPE_TEXT, 35, 1, 470, 20, 0, RT_HALIGN_LEFT, name)]
+	res = [(absolute, isDir), (eListboxPythonMultiContent.TYPE_TEXT, 50, 1, 470, 35, 0, RT_HALIGN_LEFT, name)]
 	if isDir:
 		png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "extensions/directory.png"))
 	else:
@@ -47,7 +47,7 @@ def FileEntryComponent(name, absolute = None, isDir = False):
 		else:
 			png = None
 	if png is not None:
-		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 10, 2, 20, 20, png))
+		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 2, 35, 35, png))
 
 	return res
 
@@ -73,7 +73,7 @@ class FileList(MenuList):
 
 		self.refreshMountpoints()
 		self.changeDir(directory)
-		self.l.setFont(0, gFont("Regular", 18))
+		self.l.setFont(0, gFont("Regular", 28))
 		self.l.setItemHeight(23)
 		self.serviceHandler = eServiceCenter.getInstance()
 
@@ -266,7 +266,7 @@ class FileList(MenuList):
 
 
 def MultiFileSelectEntryComponent(name, absolute = None, isDir = False, selected = False):
-	res = [(absolute, isDir, selected, name), (eListboxPythonMultiContent.TYPE_TEXT, 55, 1, 470, 20, 0, RT_HALIGN_LEFT, name)]
+	res = [(absolute, isDir, selected, name), (eListboxPythonMultiContent.TYPE_TEXT, 100, 7, 470, 35, 0, RT_HALIGN_LEFT, name)]
 	if isDir:
 		png = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "extensions/directory.png"))
 	else:
@@ -277,13 +277,13 @@ def MultiFileSelectEntryComponent(name, absolute = None, isDir = False, selected
 		else:
 			png = None
 	if png is not None:
-		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 30, 2, 20, 20, png))
+		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 30, 2, 35, 35, png))
 	if not name.startswith('<'):
 		if selected:
 			icon = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_on.png"))
 		else:
 			icon = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_off.png"))
-		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 2, 0, 25, 25, icon))
+		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 5, 35, 35, icon))
 	return res
 
 
@@ -296,7 +296,7 @@ class MultiFileSelectList(FileList):
 		FileList.__init__(self, directory, showMountpoints = showMountpoints, matchingPattern = matchingPattern, showDirectories = showDirectories, showFiles = showFiles,  useServiceRef = useServiceRef, inhibitDirs = inhibitDirs, inhibitMounts = inhibitMounts, isTop = isTop, enableWrapAround = enableWrapAround, additionalExtensions = additionalExtensions)
 		self.changeDir(directory)
 		self.l.setItemHeight(25)
-		self.l.setFont(0, gFont("Regular", 20))
+		self.l.setFont(0, gFont("Regular", 28))
 		self.onSelectionChanged = [ ]
 
 	def selectionChanged(self):

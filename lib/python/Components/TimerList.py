@@ -18,9 +18,9 @@ class TimerList(HTMLComponent, GUIComponent, object):
 		width = self.l.getItemSize().width()
 		res = [ None ]
 		x = (2*width) // 3
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 26, 2, x-24, 25, 1, RT_HALIGN_LEFT|RT_VALIGN_TOP, timer.name))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 2, x-24, 35, 1, RT_HALIGN_LEFT|RT_VALIGN_TOP, timer.name))
 		text = ("%s  %s") % (timer.service_ref.getServiceName(), self.getOrbitalPos(timer.service_ref))
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, x, 0, width-x-2, 25, 0, RT_HALIGN_RIGHT|RT_VALIGN_TOP, text))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, x, 0, width-x-2, 35, 0, RT_HALIGN_RIGHT|RT_VALIGN_TOP, text))
 
 		days = ( _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat"), _("Sun") )
 		begin = FuzzyTime(timer.begin)
@@ -33,14 +33,14 @@ class TimerList(HTMLComponent, GUIComponent, object):
 				flags >>= 1
 			repeatedtext = ", ".join(repeatedtext)
 			if self.iconRepeat:
-				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 2, 2, 20, 20, self.iconRepeat))
+				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 5, 3, 30, 30, self.iconRepeat))
 		else:
 			repeatedtext = begin[0] # date
 		if timer.justplay:
 			text = repeatedtext + ((" %s "+ _("(ZAP)")) % (begin[1]))
 		else:
 			text = repeatedtext + ((" %s ... %s (%d " + _("mins") + ")") % (begin[1], FuzzyTime(timer.end)[1], (timer.end - timer.begin) / 60))
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 148, 24, width-150, 25, 1, RT_HALIGN_RIGHT|RT_VALIGN_BOTTOM, text))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 148, 37, width-150, 35, 1, RT_HALIGN_RIGHT|RT_VALIGN_BOTTOM, text))
 		icon = None
 		if not processed:
 			if timer.state == TimerEntry.StateWaiting:
@@ -74,12 +74,12 @@ class TimerList(HTMLComponent, GUIComponent, object):
 			state = _("failed")
 			icon = self.iconFailed
 
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 26, 24, 90, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_TOP, state))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 50, 40, 150, 35, 1, RT_HALIGN_LEFT|RT_VALIGN_TOP, state))
 		if icon:
-			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 2, 25, 20, 20, icon))
+			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 5, 40, 30, 30, icon))
 
 		if timer.isAutoTimer:
-			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 2, 2, 20, 20, self.iconAutoTimer))
+			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 5, 3, 30, 30, self.iconAutoTimer))
 		line = LoadPixmap(resolveFilename(SCOPE_ACTIVE_SKIN, "div-h.png"))
 		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 0, height-2, width, 2, line))
 
@@ -89,10 +89,10 @@ class TimerList(HTMLComponent, GUIComponent, object):
 		GUIComponent.__init__(self)
 		self.l = eListboxPythonMultiContent()
 		self.l.setBuildFunc(self.buildTimerEntry)
-		self.l.setFont(0, gFont("Regular", 20))
-		self.l.setFont(1, gFont("Regular", 18))
-		self.l.setFont(2, gFont("Regular", 16))
-		self.l.setItemHeight(50)
+		self.l.setFont(0, gFont("Regular", 28))
+		self.l.setFont(1, gFont("Regular", 28))
+		self.l.setFont(2, gFont("Regular", 24))
+		self.l.setItemHeight(75)
 		self.l.setList(list)
 		self.iconWait = LoadPixmap(resolveFilename(SCOPE_ACTIVE_SKIN, "icons/timer_wait.png"))
 		self.iconRecording = LoadPixmap(resolveFilename(SCOPE_ACTIVE_SKIN, "icons/timer_rec.png"))

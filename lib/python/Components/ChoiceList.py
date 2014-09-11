@@ -9,13 +9,13 @@ def ChoiceEntryComponent(key="", text=None):
 	if not text: text = ["--"]
 	res = [ text ]
 	if text[0] == "--":
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 00, 800, 25, 0, RT_HALIGN_LEFT, "-"*200))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 00, 900, 35, 0, RT_HALIGN_LEFT, "-"*200))
 	else:
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 45, 00, 800, 25, 0, RT_HALIGN_LEFT, text[0]))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 85, 7, 900, 35, 0, RT_HALIGN_LEFT, text[0]))
 		pngfile = resolveFilename(SCOPE_ACTIVE_SKIN, "buttons/key_" + key + ".png")
 		if fileExists(pngfile):
 			png = LoadPixmap(pngfile)
-			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 5, 0, 35, 25, png))
+			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 5, 53, 38, png))
 	return res
 
 class ChoiceList(MenuList):

@@ -200,7 +200,7 @@ RESULT eWindowStyleSkinned::getFont(int what, ePtr<gFont> &fnt)
 	switch (what)
 	{
 	case fontStatic:
-		fnt = new gFont("Regular", 12);
+		fnt = new gFont("Regular", 28);
 		break;
 	case fontButton:
 		fnt = new gFont("Regular", 20);
