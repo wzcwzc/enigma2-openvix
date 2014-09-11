@@ -283,7 +283,7 @@ def InitUsageConfig():
 	config.epg.freesat = ConfigYesNo(default = True)
 	config.epg.viasat = ConfigYesNo(default = True)
 	config.epg.netmed = ConfigYesNo(default = True)
-	config.epg.virgin = ConfigYesNo(default = True)
+	config.epg.virgin = ConfigYesNo(default = False)
 
 	def EpgSettingsChanged(configElement):
 		mask = 0xffffffff
