@@ -332,7 +332,7 @@ class MovieList(GUIComponent):
 				elif switch == 'p' or switch == 's':
 					data.part = 100
 					if (self.playInBackground or self.playInForeground) and serviceref == (self.playInBackground or self.playInForeground):
-						data.partcol = 0xffc71d
+						data.partcol = 0xffffff
 					else:
 						data.partcol = 0xff001d
 			elif (self.playInBackground or self.playInForeground) and serviceref == (self.playInBackground or self.playInForeground):
@@ -347,11 +347,11 @@ class MovieList(GUIComponent):
 							data.icon = self.iconUnwatched
 				elif switch == 'p' or switch == 's':
 					if data.part is not None and data.part > 0:
-						data.partcol = 0xffc71d
+						data.partcol = 0xffffff
 					else:
 						if config.usage.movielist_unseen.value:
 							data.part = 100
-							data.partcol = 0x206333
+							data.partcol = 0x3499cc
 		len = data.len
 		if len > 0:
 			len = "%d:%02d" % (len / 60, len % 60)
