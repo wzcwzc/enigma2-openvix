@@ -23,7 +23,7 @@ def ChoiceEntryComponent(key="", text=None):
 				pngfile = resolveFilename(SCOPE_ACTIVE_SKIN, "buttons/key_%s.png" % key)
 			if fileExists(pngfile):
 				png = LoadPixmap(pngfile)
-				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 5, 0, 53, 38, png))
+				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 0, 53, 38, png))
 	return res
 
 class ChoiceList(MenuList):
