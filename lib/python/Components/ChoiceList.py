@@ -9,9 +9,9 @@ def ChoiceEntryComponent(key="", text=None):
 	if not text: text = ["--"]
 	res = [ text ]
 	if text[0] == "--":
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 00, 900, 35, 0, RT_HALIGN_LEFT, "-"*200))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 00, 900, 38, 0, RT_HALIGN_LEFT, "-"*200))
 	else:
-		res.append((eListboxPythonMultiContent.TYPE_TEXT, 85, 7, 900, 35, 0, RT_HALIGN_LEFT, text[0]))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, 85, 7, 900, 38, 0, RT_HALIGN_LEFT, text[0]))
 		if key:
 			if key == "expandable":
 				pngfile = resolveFilename(SCOPE_ACTIVE_SKIN, "icons/expandable.png")
@@ -23,7 +23,7 @@ def ChoiceEntryComponent(key="", text=None):
 				pngfile = resolveFilename(SCOPE_ACTIVE_SKIN, "buttons/key_%s.png" % key)
 			if fileExists(pngfile):
 				png = LoadPixmap(pngfile)
-				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 0, 53, 38, png))
+				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 10, 5, 53, 38, png))
 	return res
 
 class ChoiceList(MenuList):
