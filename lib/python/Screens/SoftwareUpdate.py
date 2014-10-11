@@ -79,8 +79,8 @@ class SoftwareUpdateChanges(Screen):
 		except:
 			releasenotes = '404 Not Found'
 		if '404 Not Found' not in releasenotes:
-			releasenotes = releasenotes.replace('[openvixhd] Apollo-HD Release.', 'openvixhd: build 000')
-			releasenotes = releasenotes.replace('\nopenvixhd: build',"\n\nopenvixhd: build")
+			releasenotes = releasenotes.replace('[openvix] Zeus Release.', 'openvix: build 000')
+			releasenotes = releasenotes.replace('\nopenvix: build',"\n\nopenvix: build")
 			releasenotes = releasenotes.split('\n\n')
 			ver = -1
 			releasever = ""
