@@ -957,9 +957,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 			ePtr<gPixmap> &pixmap = m_pixmaps[picServiceEventProgressbar];
 			if (pixmap) {
 				painter.clip(tmp);
-
 				painter.blit(pixmap, ePoint(pb_xpos + m_progressbar_border_width, pb_ypos + m_progressbar_border_width), tmp, gPainter::BT_ALPHABLEND);
-
 				painter.clippop();
 			}
 			else {
