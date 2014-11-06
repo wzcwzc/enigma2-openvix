@@ -96,12 +96,8 @@ try:
 		raise DisplaySkinError, "display skin not found"
 except Exception, err:
 	print "SKIN ERROR:", err
-	skin = DEFAULT_DISPLAY_SKIN
-	if config.skin.display_skin.value == skin:
-		skin = 'skin_display.xml'
-	print "defaulting to standard display skin...", skin
-	config.skin.display_skin.value = skin
-	skin = os.path.join('display', skin)
+	print "defaulting to standard display skin..."
+	skin = os.path.join('display', 'skin_display.xml')
 	addSkin(skin)
 	del skin
 
@@ -112,13 +108,8 @@ try:
 		raise SkinError, "primary skin not found"
 except Exception, err:
 	print "SKIN ERROR:", err
-	skin = DEFAULT_SKIN
-	if config.skin.primary_skin.value == skin:
-		skin = 'skin.xml'
-	print "defaulting to standard skin...", skin
-	config.skin.primary_skin.value = skin
-	addSkin(skin)
-	del skin
+	print "defaulting to standard skin..."
+	addSkin('skin.xml')
 
 addSkin('skin_default.xml')
 profile("LoadSkinDefaultDone")
