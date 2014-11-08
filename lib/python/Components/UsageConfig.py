@@ -391,7 +391,7 @@ def InitUsageConfig():
 	config.network.uShare_autostart = ConfigYesNo(default = True)
 
 	config.softwareupdate = ConfigSubsection()
-	config.softwareupdate.autosettingsbackup = ConfigYesNo(default = False)
+	config.softwareupdate.autosettingsbackup = ConfigYesNo(default = True)
 	config.softwareupdate.autoimagebackup = ConfigYesNo(default = False)
 	config.softwareupdate.check = ConfigYesNo(default = True)
 	config.softwareupdate.checktimer = ConfigSelectionNumber(min = 1, max = 48, stepwidth = 1, default = 6, wraparound = True)
