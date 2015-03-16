@@ -20,6 +20,8 @@ fonts = {
 	"ChoiceList": ("Regular", 20, 24, 18),
 }
 
+parameters = {}
+
 def dump(x, i=0):
 	print " " * i + str(x)
 	try:
@@ -291,6 +293,17 @@ class AttributeParser:
 			self.guiObject.resize(eSize(*value))
 		else:
 			self.guiObject.resize(parseSize(value, self.scaleTuple, self.guiObject, self.desktop))
+	def animationPaused(self, value):
+		pass
+	def animationMode(self, value):
+		self.guiObject.setAnimationMode(
+			{ "disable": 0x00,
+				"off": 0x00,
+				"offshow": 0x10,
+				"offhide": 0x01,
+				"onshow": 0x01,
+				"onhide": 0x10,
+			}[value])
 	def title(self, value):
 		self.guiObject.setTitle(_(value))
 	def text(self, value):
@@ -523,6 +536,15 @@ def loadSingleSkinData(desktop, skin, path_prefix):
 			except Exception, ex:
 				print "[SKIN] bad font alias", ex
 
+	for c in skin.findall("parameters"):
+		for parameter in c.findall("parameter"):
+			get = parameter.attrib.get
+			try:
+				name = get("name")
+				value = get("value")
+				parameters[name] = map(int, value.split(","))
+			except Exception, ex:
+				print "[SKIN] bad parameter", ex
 
 	for c in skin.findall("subtitles"):
 		from enigma import eSubtitleWidget
